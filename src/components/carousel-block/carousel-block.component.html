@@ -1,0 +1,79 @@
+<div
+  class="carousel-card"
+  [class.carousel-card--hero]="variant() === 'hero'"
+  [class.carousel-card--standard]="variant() === 'standard'"
+>
+  @if (wholeCarouselBlockLink(); as link) {
+    @if (link.type === 'internal') {
+      <a
+        class="carousel-card-link"
+        [routerLink]="link.url"
+        [target]="link.target || '_self'"
+        [attr.aria-label]="data().title || 'View carousel block'"
+      ></a>
+    } @else {
+      <a
+        class="carousel-card-link"
+        [href]="link.url"
+        [target]="link.target || '_self'"
+        [attr.rel]="link.target === '_blank' ? 'noopener noreferrer' : null"
+        [attr.aria-label]="data().title || 'View carousel block'"
+      ></a>
+    }
+  }
+  <picture class="carousel-media">
+    @if (data().mobileImg?.src) {
+      <source [srcset]="data().mobileImg?.src" media="(max-width: 768px)" />
+    }
+    <img
+      class="carousel-img"
+      [ngSrc]="data().desktopImg?.src ?? ''"
+      [alt]="data().desktopImg?.alt || data().title || 'Carousel block image'"
+      [priority]="priority()"
+      fill
+    />
+  </picture>
+  <div class="carousel-content">
+    @if (data().badges?.length) {
+      <div class="badges">
+        @for (badge of data().badges; track $index) {
+          <span class="badge">
+            {{ badge }}
+          </span>
+        }
+      </div>
+    }
+    @if (data().title) {
+      <h2 class="title">
+        {{ data().title }}
+      </h2>
+    }
+    @if (data().description) {
+      <p class="description">
+        {{ data().description }}
+      </p>
+    }
+    @if (cta(); as cta) {
+      @if (cta.link.type === 'internal') {
+        <a
+          class="cta-btn"
+          [class]="cta.variant || 'primary'"
+          [routerLink]="cta.link.url"
+          [target]="cta.link.target || '_self'"
+        >
+          {{ cta.text }}
+        </a>
+      } @else {
+        <a
+          class="cta-btn"
+          [class]="cta.variant || 'primary'"
+          [href]="cta.link.url"
+          [target]="cta.link.target || '_self'"
+          [attr.rel]="cta.link.target === '_blank' ? 'noopener noreferrer' : null"
+        >
+          {{ cta.text }}
+        </a>
+      }
+    }
+  </div>
+</div>

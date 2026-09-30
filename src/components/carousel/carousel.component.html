@@ -1,0 +1,107 @@
+<div
+  class="carousel"
+  role="region"
+  aria-label="Featured content"
+  [class.carousel--standard]="variant() === 'standard'"
+  [class.carousel--hero]="variant() === 'hero'"
+>
+  @if (variant() === 'standard') {
+    <div class="carousel-standard-header">
+      @if (carouselTitle()) {
+        <h2 class="carousel-header">
+          {{ carouselTitle() }}
+        </h2>
+      }
+
+      <div class="carousel-header-actions">
+        <button
+          type="button"
+          class="nav-btn nav-btn--header-prev"
+          aria-label="Previous Carousel Block"
+          (click)="handleCarouselBlockChange({ direction: 'prev' })"
+        >
+          <ng-icon
+            name="lucideChevronLeft"
+            aria-hidden="true"
+          />
+        </button>
+
+        <button
+          type="button"
+          class="nav-btn nav-btn--header-next"
+          aria-label="Next Carousel Block"
+          (click)="handleCarouselBlockChange({ direction: 'next' })"
+        >
+          <ng-icon
+            name="lucideChevronRight"
+            aria-hidden="true"
+          />
+        </button>
+      </div>
+    </div>
+  }
+
+  @if (variant() !== 'standard' && carouselTitle()) {
+    <h2 class="carousel-header">
+      {{ carouselTitle() }}
+    </h2>
+  }
+
+  <div class="carousel-container">
+    <div class="carousel-viewport">
+      <div
+        class="carousel-track"
+        [style.transform]="trackTransform()"
+        role="group"
+        aria-roledescription="carousel"
+      >
+        @for (item of carouselItems(); track $index) {
+          <div
+            class="carousel-block-wrapper"
+            role="group"
+            aria-roledescription="slide"
+            [attr.aria-label]="
+              'Item ' + ($index + 1) + ' of ' + carouselItems().length
+            "
+            [style.flex]="
+              '0 0 ' + 100 / enrichedItemsPerPage() + '%'
+            "
+            (mouseenter)="
+              handleHovered({
+                type: 'enter',
+                idx: $index,
+              })
+            "
+            (mouseleave)="
+              handleHovered({
+                type: 'leave',
+                idx: $index,
+              })
+            "
+          >
+            <carousel-block
+              [priority]="priority()"
+              [data]="item"
+              [variant]="variant()"
+            />
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+  @if (variant() !== 'standard' && totalPages() > 1) {
+    <div class="carousel-dots" role="tablist" aria-label="Carousel navigation">
+      @for (page of totalPagesArray(); track $index) {
+        <button
+          type="button"
+          role="tab"
+          class="carousel-dot"
+          [class.carousel-dot--active]="$index === activePageIndex()"
+          [attr.aria-selected]="$index === activePageIndex()"
+          [attr.aria-label]="'Go to page ' + ($index + 1)"
+          (click)="goToPage($index)"
+        ></button>
+      }
+    </div>
+  }
+</div>

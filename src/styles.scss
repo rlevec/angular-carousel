@@ -1,0 +1,248 @@
+:root {
+  --font-family-sans:
+    'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --carousel-gap: 16px;
+
+  --carousel-arrow-size: 44px;
+  --carousel-arrow-icon-size: 24px;
+  --carousel-arrow-background: rgba(255, 255, 255, 0.9);
+  --carousel-arrow-color: #111111;
+  --carousel-arrow-radius: 50%;
+  --carousel-arrow-opacity: 1;
+  --carousel-arrow-disabled-opacity: 0.3;
+  --carousel-arrow-hover-background: #ffffff;
+  --carousel-arrow-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --carousel-arrow-hover-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  --carousel-arrow-gap: 12px;
+  --carousel-arrow-offset: 16px;
+
+  --carousel-dot-size: 10px;
+  --carousel-dot-radius: 50%;
+  --carousel-dot-gap: 8px;
+  --carousel-dot-margin-top: 1.25rem;
+  --carousel-dot-background: rgba(0, 0, 0, 0.25);
+  --carousel-dot-hover-background: rgba(0, 0, 0, 0.5);
+  --carousel-dot-active-width: 24px;
+  --carousel-dot-active-radius: 12px;
+  --carousel-dot-active-background: #111111;
+
+  --carousel-card-radius: 16px;
+  --carousel-card-background: #1a1a1a;
+  --carousel-card-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+  --carousel-media-min-height: 280px;
+  --carousel-header-width: 100%;
+  --carousel-header-max-width: 100%;
+  --carousel-header-padding: 0 0 12px 0;
+  --carousel-header-color: #111827;
+  --carousel-header-font-family: inherit;
+  --carousel-header-font-size: 2rem;
+  --carousel-header-font-weight: 700;
+  --carousel-header-line-height: 1.2;
+  --carousel-header-letter-spacing: -0.02em;
+  --carousel-header-text-align: center;
+
+  --carousel-standard-content-padding: 1.5rem;
+  --carousel-hero-content-padding: 2.5rem 4rem;
+  --carousel-content-gap: 0.75rem;
+  --carousel-content-color: #ffffff;
+
+  --carousel-badge-gap: 0.5rem;
+  --carousel-badge-padding-y: 0.35rem;
+  --carousel-badge-padding-x: 0.85rem;
+  --carousel-badge-radius: 50px;
+  --carousel-badge-background: rgba(255, 255, 255, 0.1);
+  --carousel-badge-font-size: 0.75rem;
+  --carousel-badge-font-weight: 600;
+  --carousel-badge-line-height: 1;
+  --carousel-badge-letter-spacing: 0.05em;
+
+  --carousel-title-font-size: 2rem;
+  --carousel-title-font-weight: 700;
+  --carousel-title-line-height: 1.2;
+
+  --carousel-description-font-size: 1rem;
+  --carousel-description-line-height: 1.5;
+  --carousel-description-max-width: 600px;
+  --carousel-description-opacity: 0.9;
+
+  --carousel-cta-padding-y: 0.75rem;
+  --carousel-cta-padding-x: 1.5rem;
+  --carousel-cta-radius: 8px;
+  --carousel-cta-font-size: 1rem;
+  --carousel-cta-font-weight: 600;
+  --carousel-cta-line-height: 1.2;
+  --carousel-cta-hover-transform: translateY(-2px);
+
+  --carousel-cta-primary-background: #2563eb;
+  --carousel-cta-primary-color: #ffffff;
+  --carousel-cta-primary-hover-background: #1d4ed8;
+
+  --carousel-cta-secondary-background: #475569;
+  --carousel-cta-secondary-color: #ffffff;
+  --carousel-cta-secondary-hover-background: #334155;
+
+  --carousel-cta-outlined-background: transparent;
+  --carousel-cta-outlined-color: #2563eb;
+  --carousel-cta-outlined-border: 1px solid #2563eb;
+
+  --carousel-cta-outlined-hover-background: #eff6ff;
+  --carousel-cta-outlined-hover-color: #1d4ed8;
+  --carousel-cta-outlined-hover-border: 1px solid #1d4ed8;
+
+  --carousel-cta-ghost-background: transparent;
+  --carousel-cta-ghost-color: #334155;
+  --carousel-cta-ghost-hover-background: #f1f5f9;
+
+  --carousel-cta-danger-background: #dc2626;
+  --carousel-cta-danger-color: #ffffff;
+  --carousel-cta-danger-hover-background: #b91c1c;
+
+  --carousel-overlay-opacity: 0.4;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --carousel-arrow-size: 40px;
+    --carousel-arrow-icon-size: 22px;
+    --carousel-arrow-gap: 8px;
+    --carousel-arrow-offset: 12px;
+
+    --carousel-dot-size: 9px;
+    --carousel-dot-gap: 7px;
+    --carousel-dot-margin-top: 1.125rem;
+    --carousel-dot-active-width: 20px;
+
+    --carousel-card-radius: 14px;
+
+    --carousel-media-min-height: 240px;
+
+    --carousel-header-font-size: 1.75rem;
+
+    --carousel-badge-padding-x: 0.8rem;
+    --carousel-badge-font-size: 0.72rem;
+
+    --carousel-title-font-size: 1.75rem;
+
+    --carousel-cta-padding-y: 0.7rem;
+    --carousel-cta-padding-x: 1.25rem;
+    --carousel-cta-font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --carousel-arrow-size: 36px;
+    --carousel-arrow-icon-size: 20px;
+    --carousel-arrow-gap: 6px;
+    --carousel-arrow-offset: 10px;
+
+    --carousel-dot-size: 8px;
+    --carousel-dot-gap: 6px;
+    --carousel-dot-margin-top: 1rem;
+    --carousel-dot-active-width: 18px;
+
+    --carousel-card-radius: 12px;
+
+    --carousel-media-min-height: 220px;
+
+    --carousel-header-font-size: 1.5rem;
+
+    --carousel-standard-content-padding: 1.25rem 2.75rem;
+    --carousel-hero-content-padding: 1.25rem 3rem;
+    --carousel-content-gap: 0.6rem;
+
+    --carousel-badge-gap: 0.4rem;
+    --carousel-badge-padding-y: 0.3rem;
+    --carousel-badge-padding-x: 0.7rem;
+    --carousel-badge-font-size: 0.7rem;
+
+    --carousel-title-font-size: 1.4rem;
+    --carousel-title-line-height: 1.25;
+
+    --carousel-description-font-size: 0.9rem;
+    --carousel-description-line-height: 1.45;
+
+    --carousel-cta-padding-y: 0.7rem;
+    --carousel-cta-padding-x: 1rem;
+    --carousel-cta-font-size: 0.95rem;
+    --carousel-cta-radius: 7px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --carousel-arrow-size: 34px;
+    --carousel-arrow-icon-size: 18px;
+    --carousel-arrow-offset: 8px;
+
+    --carousel-dot-size: 7px;
+    --carousel-dot-gap: 5px;
+    --carousel-dot-margin-top: 0.875rem;
+    --carousel-dot-active-width: 16px;
+
+    --carousel-media-min-height: 200px;
+
+    --carousel-header-font-size: 1.4rem;
+
+    --carousel-standard-content-padding: 1rem 2.5rem;
+    --carousel-hero-content-padding: 1rem 2.75rem;
+    --carousel-content-gap: 0.5rem;
+
+    --carousel-badge-gap: 0.35rem;
+    --carousel-badge-padding-y: 0.28rem;
+    --carousel-badge-padding-x: 0.6rem;
+
+    --carousel-badge-font-size: 0.65rem;
+
+    --carousel-title-font-size: 1.25rem;
+
+    --carousel-description-font-size: 0.875rem;
+    --carousel-description-line-height: 1.4;
+
+    --carousel-cta-padding-y: 0.65rem;
+    --carousel-cta-padding-x: 0.9rem;
+    --carousel-cta-font-size: 0.9rem;
+    --carousel-cta-radius: 6px;
+  }
+}
+
+html {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  width: 100%;
+  min-height: 100dvh;
+
+  margin: 0;
+  padding: 0;
+
+  overflow-x: hidden;
+
+  font-family: var(--font-family-sans);
+}
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
