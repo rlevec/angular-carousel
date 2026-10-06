@@ -2,14 +2,14 @@
   class="carousel"
   role="region"
   aria-label="Featured content"
-  [class.carousel--standard]="variant() === 'standard'"
-  [class.carousel--hero]="variant() === 'hero'"
+  [class.carousel--standard]="carouselService.variant() === 'standard'"
+  [class.carousel--hero]="carouselService.variant() === 'hero'"
 >
-  @if (variant() === 'standard') {
+  @if (carouselService.variant() === 'standard') {
     <div class="carousel-standard-header">
-      @if (carouselTitle()) {
+      @if (carouselService.carouselTitle()) {
         <h2 class="carousel-header">
-          {{ carouselTitle() }}
+          {{ carouselService.carouselTitle() }}
         </h2>
       }
 
@@ -18,7 +18,7 @@
           type="button"
           class="nav-btn nav-btn--header-prev"
           aria-label="Previous Carousel Block"
-          (click)="handleCarouselBlockChange({ direction: 'prev' })"
+          (click)="carouselService.handleCarouselBlockChange({ direction: 'prev' })"
         >
           <ng-icon
             name="lucideChevronLeft"
@@ -30,7 +30,7 @@
           type="button"
           class="nav-btn nav-btn--header-next"
           aria-label="Next Carousel Block"
-          (click)="handleCarouselBlockChange({ direction: 'next' })"
+          (click)="carouselService.handleCarouselBlockChange({ direction: 'next' })"
         >
           <ng-icon
             name="lucideChevronRight"
@@ -41,9 +41,9 @@
     </div>
   }
 
-  @if (variant() !== 'standard' && carouselTitle()) {
+  @if (carouselService.variant() !== 'standard' && carouselService.carouselTitle()) {
     <h2 class="carousel-header">
-      {{ carouselTitle() }}
+      {{ carouselService.carouselTitle() }}
     </h2>
   }
 
@@ -51,55 +51,55 @@
     <div class="carousel-viewport">
       <div
         class="carousel-track"
-        [style.transform]="trackTransform()"
+        [style.transform]="carouselService.trackTransform()"
         role="group"
         aria-roledescription="carousel"
       >
-        @for (item of carouselItems(); track $index) {
+        @for (item of carouselService.carouselItems(); track $index) {
           <div
             class="carousel-block-wrapper"
             role="group"
             aria-roledescription="slide"
             [attr.aria-label]="
-              'Item ' + ($index + 1) + ' of ' + carouselItems().length
+              'Item ' + ($index + 1) + ' of ' + carouselService.carouselItems().length
             "
             [style.flex]="
-              '0 0 ' + 100 / enrichedItemsPerPage() + '%'
+              '0 0 ' + 100 / carouselService.enrichedItemsPerPage() + '%'
             "
             (mouseenter)="
-              handleHovered({
+              carouselService.handleHovered({
                 type: 'enter',
                 idx: $index,
               })
             "
             (mouseleave)="
-              handleHovered({
+              carouselService.handleHovered({
                 type: 'leave',
                 idx: $index,
               })
             "
           >
             <carousel-block
-              [priority]="priority()"
+              [priority]="carouselService.priority()"
               [data]="item"
-              [variant]="variant()"
+              [variant]="carouselService.variant()"
             />
           </div>
         }
       </div>
     </div>
   </div>
-  @if (variant() !== 'standard' && totalPages() > 1) {
+  @if (carouselService.variant() !== 'standard' && carouselService.totalPages() > 1) {
     <div class="carousel-dots" role="tablist" aria-label="Carousel navigation">
-      @for (page of totalPagesArray(); track $index) {
+      @for (page of carouselService.totalPagesArray(); track $index) {
         <button
           type="button"
           role="tab"
           class="carousel-dot"
-          [class.carousel-dot--active]="$index === activePageIndex()"
-          [attr.aria-selected]="$index === activePageIndex()"
+          [class.carousel-dot--active]="$index === carouselService.activePageIndex()"
+          [attr.aria-selected]="$index === carouselService.activePageIndex()"
           [attr.aria-label]="'Go to page ' + ($index + 1)"
-          (click)="goToPage($index)"
+          (click)="carouselService.goToPage($index)"
         ></button>
       }
     </div>
